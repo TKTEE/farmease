@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FarmEase</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="enter_full_names">Enter Full Names</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="create_new_user">Create New User</string>
+    <string name="already_have_an_account_log_in">Already have an account ? LOG IN</string>
+    <string name="register">REGISTER</string>
+</resources>

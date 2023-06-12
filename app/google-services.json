@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799130465207",
+    "project_id": "farmease-20d71",
+    "storage_bucket": "farmease-20d71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799130465207:android:882ef63172e1dcae9a2e32",
+        "android_client_info": {
+          "package_name": "com.example.farmease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799130465207-bpva9j6rutv6tjddbijrei568lgevtj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaMki22BCCWMjoqEOHIAXDWqHTd-3X62A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799130465207-bpva9j6rutv6tjddbijrei568lgevtj9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
