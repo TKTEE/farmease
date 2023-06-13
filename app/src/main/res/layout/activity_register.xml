@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:background="@drawable/farm"
+    android:background="@drawable/farm5"
     >
 
     <TextView
         android:id="@+id/mTvUser"
         android:layout_width="200dp"
-        android:layout_height="0dp"
+        android:layout_height="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="475dp"
         android:gravity="center"
         android:text="@string/create_new_user"
+        android:textColor="@color/black"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/mBtnReg"
@@ -24,39 +25,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/mTvCon"
+        android:id="@+id/mEdtCon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:ems="10"
+        android:padding="8dp"
         android:gravity="center"
         android:hint="@string/confirm_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="#A1887F"
+        android:textColorHint="@color/black"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/mTvPass"
-        app:layout_constraintTop_toBottomOf="@+id/mTvPass" />
+        app:layout_constraintStart_toStartOf="@+id/mEdtPass"
+        app:layout_constraintTop_toBottomOf="@+id/mEdtPass" />
 
     <EditText
-        android:id="@+id/mTvEmail"
+        android:id="@+id/mEdtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="34dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Enter Your Email"
+        android:padding="8dp"
+        android:hint="@string/enter_your_email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:textColorHint="#A1887F"
+        android:textColorHint="@color/black"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/mTvName"
-        app:layout_constraintTop_toBottomOf="@+id/mTvName" />
+        app:layout_constraintStart_toStartOf="@+id/mEdtName"
+        app:layout_constraintTop_toBottomOf="@+id/mEdtName" />
 
 
     <EditText
-        android:id="@+id/mTvName"
+        android:id="@+id/mEdtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
@@ -65,30 +68,32 @@
         android:hint="@string/enter_full_names"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#A1887F"
+        android:padding="8dp"
+        android:textColorHint="@color/black"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/mTvPass"
-        app:layout_constraintStart_toStartOf="@+id/mTvPass"
+        app:layout_constraintEnd_toEndOf="@+id/mEdtPass"
+        app:layout_constraintStart_toStartOf="@+id/mEdtPass"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/mTvPhone"
+        android:id="@+id/mEdtPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginBottom="36dp"
         android:ems="10"
         android:gravity="center"
+        android:padding="8dp"
         android:hint="@string/enter_phone_number"
         android:inputType="phone"
         android:minHeight="48dp"
-        android:textColorHint="#A1887F"
+        android:textColorHint="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mTvPass"
-        app:layout_constraintStart_toStartOf="@+id/mTvPass" />
+        app:layout_constraintBottom_toTopOf="@+id/mEdtPass"
+        app:layout_constraintStart_toStartOf="@+id/mEdtPass" />
 
     <EditText
-        android:id="@+id/mTvPass"
+        android:id="@+id/mEdtPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="305dp"
@@ -97,7 +102,8 @@
         android:hint="@string/enter_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="#A1887F"
+        android:padding="8dp"
+        android:textColorHint="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,7 +127,9 @@
         android:layout_marginBottom="65dp"
         android:text="@string/already_have_an_account_log_in"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mBtnReg" />

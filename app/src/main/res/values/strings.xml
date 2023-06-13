@@ -7,4 +7,5 @@
     <string name="create_new_user">Create New User</string>
     <string name="already_have_an_account_log_in">Already have an account ? LOG IN</string>
     <string name="register">REGISTER</string>
+    <string name="enter_your_email">Enter Your Email</string>
 </resources>
