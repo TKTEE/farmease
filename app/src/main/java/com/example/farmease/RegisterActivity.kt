@@ -15,6 +15,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var tvUser: TextView
     lateinit var edtName: EditText
     lateinit var edtEmail: EditText
+    lateinit var edtPhone: EditText
     lateinit var edtPassword: EditText
     lateinit var edtConfirm: EditText
     lateinit var btnReg: Button
@@ -27,13 +28,14 @@ class RegisterActivity : AppCompatActivity() {
         tvUser = findViewById(R.id.mTvUser)
         edtName = findViewById(R.id.mEdtName)
         edtEmail = findViewById(R.id.mEdtEmail)
-        edtPassword = findViewById(R.id.mEdtPass)
-        edtConfirm = findViewById(R.id.mEdtCon)
-        btnReg = findViewById(R.id.mBtnReg)
+        edtPassword = findViewById(R.id.mEdtPassword)
+        edtConfirm = findViewById(R.id.mEdtConfirm)
+        btnReg = findViewById(R.id.mBtnLog)
         tvLogin = findViewById(R.id.mTvLogin)
 
         btnReg.setOnClickListener {
             var name = edtName.text.toString().trim()
+            var phone = edtPhone.text.toString().trim()
             var email = edtEmail.text.toString().trim()
             var password = edtPassword.text.toString().trim()
 
@@ -46,8 +48,6 @@ class RegisterActivity : AppCompatActivity() {
             }else if(password.length < 6){
                 edtPassword.setError("Password is too short")
                 edtPassword.requestFocus()
-            }else if(confirm.){
-
             }else{
                 progress.show()
                 mAuth.createUserWithEmailAndPassword(email, password)
