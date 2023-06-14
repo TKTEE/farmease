@@ -33,8 +33,10 @@ class RegisterActivity : AppCompatActivity() {
         tvLogin = findViewById(R.id.mTvLogin)
 
         btnReg.setOnClickListener {
+            var name = edtName.text.toString().trim()
             var email = edtEmail.text.toString().trim()
             var password = edtPassword.text.toString().trim()
+
             if(email.isEmpty()){
                 edtEmail.setError("Please fill this input")
                 edtEmail.requestFocus()
@@ -44,8 +46,9 @@ class RegisterActivity : AppCompatActivity() {
             }else if(password.length < 6){
                 edtPassword.setError("Password is too short")
                 edtPassword.requestFocus()
-            }
-            else{
+            }else if(confirm.){
+
+            }else{
                 progress.show()
                 mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener{
