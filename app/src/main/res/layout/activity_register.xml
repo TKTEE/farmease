@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/farm5"
+    android:background="@drawable/back1"
     tools:context=".HomeActivity">
 
     <TextView
-        android:id="@+id/mTvUser"
+        android:id="@+id/mTvLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="61dp"
@@ -42,7 +42,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mTvUser" />
+        app:layout_constraintTop_toBottomOf="@+id/mTvLog" />
 
     <EditText
         android:id="@+id/mEdtEmail"

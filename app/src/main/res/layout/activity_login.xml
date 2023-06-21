@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/farm6"
+    android:background="@drawable/back1"
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/mTvUser"
+        android:id="@+id/mTvLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
@@ -68,7 +68,7 @@
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mTvUser" />
+        app:layout_constraintTop_toBottomOf="@+id/mTvLog" />
 
     <Button
         android:id="@+id/mBtnLog"
@@ -124,16 +124,17 @@
             android:layout_height="wrap_content"
             android:shadowColor="@color/white"
             android:text="Don't have an account yet? "
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textColorHint="@color/white"
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/mTvReg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:shadowColor="@color/white"
             android:text="Register"
-            android:textColor="@color/red"
+            android:textColor="@color/black"
             android:textSize="20sp" />
     </LinearLayout>
 
