@@ -1,5 +1,6 @@
 package com.example.farmease
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -14,6 +15,7 @@ class LearnActivity : AppCompatActivity() {
     private lateinit var learnArrayList: ArrayList<Learn>
     private lateinit var imageId: Array<Int>
     private lateinit var heading: Array<String>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,7 @@ class LearnActivity : AppCompatActivity() {
         learnRecyclerView = binding.mRecycleView
         learnRecyclerView.layoutManager = LinearLayoutManager(this)
         learnRecyclerView.setHasFixedSize(true)
+        initUi()
 
         learnArrayList = arrayListOf()
         getUserData()
@@ -53,5 +56,14 @@ class LearnActivity : AppCompatActivity() {
             learnArrayList.add(learn)
         }
         learnRecyclerView.adapter = MyAdapter(learnArrayList)
+    }
+
+    private fun initUi(){
+        binding.mCustomToolBar.mBackArrow.setOnClickListener{
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.mCustomToolBar.mTvC.text = "Learn"
     }
 }
