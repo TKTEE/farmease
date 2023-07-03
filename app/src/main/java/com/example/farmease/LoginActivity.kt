@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var edtPassword: EditText
     lateinit var tvLogin:TextView
     lateinit var tvForget:TextView
-    lateinit var tvReg: EditText
+    lateinit var tvReg: TextView
     lateinit var btnLog: Button
     lateinit var btnGoogle: Button
     lateinit var btnFacebook: Button
@@ -43,14 +43,14 @@ class LoginActivity : AppCompatActivity() {
 
         }
         btnLog.setOnClickListener {
-            var email = edtEmail.text.toString().trim()
-            var password = edtPassword.text.toString().trim()
+            val email = edtEmail.text.toString().trim()
+            val password = edtPassword.text.toString().trim()
 
             if (email.isEmpty()){
-                edtEmail.setError("Please fill this input")
+                edtEmail.error = "Please fill this input"
                 edtEmail.requestFocus()
             }else if(password.isEmpty()){
-                edtPassword.setError("Please fill the input")
+                edtPassword.error = "Please fill the input"
                 edtPassword.requestFocus()
             }else{
                 // Proceed to register  the user
@@ -79,14 +79,13 @@ class LoginActivity : AppCompatActivity() {
         btnGoogle.setOnClickListener {
 
         }
-        }
-
     }
-fun displaymessage(context: Context, title: String, message: String) {
-    val alertDialog = AlertDialog.Builder(context)
-    alertDialog.setTitle(title)
-    alertDialog.setMessage(message)
-    alertDialog.setPositiveButton("Ok", null)
-    alertDialog.create().show()
-}
+    fun displaymessage(context: Context, title: String, message: String) {
+        val alertDialog = AlertDialog.Builder(context)
+        alertDialog.setTitle(title)
+        alertDialog.setMessage(message)
+        alertDialog.setPositiveButton("Ok", null)
+        alertDialog.create().show()
+    }
 
+}

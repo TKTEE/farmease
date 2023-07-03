@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var tvUser: TextView
@@ -18,7 +19,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var edtPhone: EditText
     lateinit var edtPassword: EditText
     lateinit var edtConfirm: EditText
-    lateinit var btnReg: Button
+    lateinit var btnLog: Button
     lateinit var tvLogin: TextView
     lateinit var progress: ProgressDialog
     lateinit var mAuth: FirebaseAuth
@@ -27,49 +28,71 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
         tvUser = findViewById(R.id.mTvLog)
         edtName = findViewById(R.id.mEdtName)
+        edtPhone = findViewById(R.id.mEdtPhone)
         edtEmail = findViewById(R.id.mEdtEmail)
         edtPassword = findViewById(R.id.mEdtPassword)
         edtConfirm = findViewById(R.id.mEdtConfirm)
-        btnReg = findViewById(R.id.mBtnLog)
+        btnLog = findViewById(R.id.mBtnLog)
         tvLogin = findViewById(R.id.mTvLogin)
 
-        btnReg.setOnClickListener {
-            var name = edtName.text.toString().trim()
-            var phone = edtPhone.text.toString().trim()
-            var email = edtEmail.text.toString().trim()
-            var password = edtPassword.text.toString().trim()
+        btnLog.setOnClickListener {
+            val phone = edtPhone.text.toString().trim()
+            val email = edtEmail.text.toString().trim()
+            val password = edtPassword.text.toString().trim()
+            val confirmPassword = edtConfirm.text.toString().trim()
+            val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
-            if(email.isEmpty()){
+
+            if (phone.isEmpty()) {
+                edtPhone.setError("Please fill this input")
+                edtPhone.requestFocus()
+            }
+
+            if (email.isEmpty()) {
                 edtEmail.setError("Please fill this input")
                 edtEmail.requestFocus()
-            }else if(password.isEmpty()){
+            } else if (password.isEmpty()) {
                 edtPassword.setError("Please fill this input")
                 edtPassword.requestFocus()
-            }else if(password.length < 6){
+            } else if (password.length < 6) {
                 edtPassword.setError("Password is too short")
                 edtPassword.requestFocus()
-            }else{
+            } else if (confirmPassword.isEmpty()) {
+                edtConfirm.setError("Please fill this input")
+                edtConfirm.requestFocus()
+            } else if (password != confirmPassword) {
+                edtConfirm.setError("Passwords do not match")
+                edtConfirm.requestFocus()
+            } else {
                 progress.show()
                 mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener{
+                    .addOnCompleteListener {
                         progress.dismiss()
-                        if(it.isSuccessful){
-                            Toast.makeText(this,"Registration successful",
-                                Toast.LENGTH_SHORT).show()
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                this, "Registration successful",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             mAuth.signOut()
                             startActivity(Intent(this, LoginActivity::class.java))
                             finish()
-                        }else{
+                        } else {
                             displayMessage("ERROR", it.exception!!.message.toString())
                         }
                     }
             }
+            val intent = Intent(this, HomeActivity::class.java)
+            Toast.makeText(this, "Welcome!", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
         }
         tvLogin.setOnClickListener {
-          startActivity(Intent(this,LoginActivity::class.java))
+            val intent = Intent(this, LoginActivity::class.java)
+            Toast.makeText(this, "Welcome Back!", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
         }
-    }
-    fun displayMessage(title:String, message:String){
+
+
+    } fun displayMessage(title: String, message: String) {
         var alertDialog = AlertDialog.Builder(this)
         alertDialog.setTitle(title)
         alertDialog.setMessage(message)

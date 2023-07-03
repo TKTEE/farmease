@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@drawable/farm15"
     tools:context=".LoginActivity">
 
     <TextView
@@ -16,7 +16,7 @@
         android:layout_marginEnd="153dp"
         android:text="LOG IN"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +42,7 @@
         android:paddingBottom="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mEdtEmail" />
@@ -66,6 +67,7 @@
         android:paddingBottom="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mTvLog" />
@@ -98,7 +100,7 @@
         android:layout_marginBottom="34dp"
         android:text="Forgot Password?"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/mBtnLog"
         app:layout_constraintEnd_toEndOf="parent"
@@ -124,9 +126,9 @@
             android:layout_height="wrap_content"
             android:shadowColor="@color/white"
             android:text="Don't have an account yet? "
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/mTvReg"
@@ -134,8 +136,8 @@
             android:layout_height="wrap_content"
             android:shadowColor="@color/white"
             android:text="Register"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <Button
@@ -148,6 +150,7 @@
         android:drawableLeft="@drawable/ic_google"
         android:drawablePadding="10dp"
         android:text="Google"
+        app:iconSize="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/mBtnFacebook"
         app:layout_constraintEnd_toStartOf="@+id/mBtnFacebook"
         app:layout_constraintStart_toStartOf="parent"
@@ -168,6 +171,7 @@
         android:text="Facebook"
         android:textColorHighlight="@color/aqua"
         android:textColorLink="@color/aqua"
+        app:iconSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mBtnGoogle"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

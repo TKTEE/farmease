@@ -16,4 +16,5 @@
     <color name="maroon">#800000</color>
     <color name="red">#FF0000</color>
     <color name="gray">#808080</color>
+    <color name="underline">#D8D6D6</color>
 </resources>
