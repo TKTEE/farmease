@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var tvUser: TextView
@@ -23,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var tvLogin: TextView
     lateinit var progress: ProgressDialog
     lateinit var mAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -34,6 +36,9 @@ class RegisterActivity : AppCompatActivity() {
         edtConfirm = findViewById(R.id.mEdtConfirm)
         btnLog = findViewById(R.id.mBtnLog)
         tvLogin = findViewById(R.id.mTvLogin)
+        progress = ProgressDialog(this)
+        mAuth = FirebaseAuth.getInstance()
+        val database = FirebaseDatabase.getInstance().reference
 
         btnLog.setOnClickListener {
             val phone = edtPhone.text.toString().trim()
@@ -69,34 +74,54 @@ class RegisterActivity : AppCompatActivity() {
                     .addOnCompleteListener {
                         progress.dismiss()
                         if (it.isSuccessful) {
-                            Toast.makeText(
-                                this, "Registration successful",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            mAuth.signOut()
-                            startActivity(Intent(this, LoginActivity::class.java))
-                            finish()
-                        } else {
-                            displayMessage("ERROR", it.exception!!.message.toString())
+                            val user: FirebaseUser? = mAuth.currentUser
+                            val userId: String? = user?.uid
+
+                            // Create a HashMap to store user data
+                            val userData = HashMap<String, Any>()
+                            userData["name"] = edtName.text.toString()
+                            userData["phone"] = edtPhone.text.toString()
+                            userData["email"] = email
+
+                            // Store the user data in the Firebase Realtime Database
+                            if (userId != null) {
+                                database.child("users").child(userId).setValue(userData)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(
+                                            this, "Registration successful",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+
+                                        mAuth.signOut()
+                                        startActivity(Intent(this, LoginActivity::class.java))
+                                        finish()
+                                    }
+                                    .addOnFailureListener {
+                                        displayMessage("ERROR", it.message.toString())
+                                    }
+                            } else {
+                                displayMessage("ERROR", it.exception!!.message.toString())
+                            }
                         }
                     }
+                val intent = Intent(this, HomeActivity::class.java)
+                Toast.makeText(this, "Welcome!", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
             }
-            val intent = Intent(this, HomeActivity::class.java)
-            Toast.makeText(this, "Welcome!", Toast.LENGTH_SHORT).show()
-            startActivity(intent)
-        }
-        tvLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            Toast.makeText(this, "Welcome Back!", Toast.LENGTH_SHORT).show()
-            startActivity(intent)
-        }
+            tvLogin.setOnClickListener {
+                val intent = Intent(this, LoginActivity::class.java)
+                Toast.makeText(this, "Welcome Back!", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }
 
 
-    } fun displayMessage(title: String, message: String) {
-        var alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle(title)
-        alertDialog.setMessage(message)
-        alertDialog.setPositiveButton("Ok", null)
-        alertDialog.create().show()
+        }
     }
-}
+        fun displayMessage(title: String, message: String) {
+            var alertDialog = AlertDialog.Builder(this)
+            alertDialog.setTitle(title)
+            alertDialog.setMessage(message)
+            alertDialog.setPositiveButton("Ok", null)
+            alertDialog.create().show()
+        }
+    }

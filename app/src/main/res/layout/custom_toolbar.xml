@@ -28,7 +28,7 @@
         app:layout_constraintStart_toEndOf="@+id/mBackArrow"
         />
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/mConnect"
+        android:id="@+id/mFarmEase"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:src="@drawable/ic_toolbar"

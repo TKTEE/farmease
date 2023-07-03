@@ -20,7 +20,7 @@ class ProduceActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        binding.mCustomToolBar.mTvC.text = "Produce"
+        binding.mCustomToolBar.mTvC.text = "Agroproducts"
 
     }
 }
