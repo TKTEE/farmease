@@ -11,7 +11,7 @@ class ProduceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_produce)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_connect)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_produce)
         initUi()
     }
     private fun initUi(){

@@ -11,51 +11,34 @@ import com.example.farmease.databinding.ActivityLearnBinding
 class LearnActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLearnBinding
-    private lateinit var learnRecyclerView: RecyclerView
-    private lateinit var learnArrayList: ArrayList<Learn>
-    private lateinit var imageId: Array<Int>
-    private lateinit var heading: Array<String>
-
-
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var learnList: ArrayList<Learn>
+    private lateinit var myAdapter: MyAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_learn)
-
-        imageId = arrayOf(
-            R.drawable.ic_farm1,
-            R.drawable.ic_farm2,
-            R.drawable.ic_farm3,
-            R.drawable.ic_farm1,
-            R.drawable.ic_farm2,
-            R.drawable.ic_farm3
-        )
-        heading = arrayOf(
-            "Precision Agriculture: Precision agriculture involves using technologies like GPS, sensors, and data analytics to optimize farming practices. It enables farmers to monitor and manage their crops more precisely, resulting in improved resource efficiency, reduced costs, and increased yields",
-
-            "Vertical Farming: Vertical farming is a method of growing crops in vertically stacked layers or structures, often indoors or in urban areas. This approach allows for year-round cultivation, maximizes space utilization, minimizes water usage, and reduces the need for pesticides and herbicides",
-
-            "Hydroponics: Hydroponics is a soil-less farming technique where plants are grown in nutrient-rich water solutions. This method conserves water, requires less space, enables faster growth rates, and provides precise control over nutrient delivery to plants",
-
-            "Aquaponics: Aquaponics combines aquaculture (fish farming) with hydroponics. It involves the symbiotic relationship between fish and plants, where the fish waste provides nutrients for the plants, while the plants filter and purify the water for the fish. This integrated system can increase productivity and resource efficiency",
-
-            "Controlled Environment Agriculture (CEA): CEA refers to the practice of growing crops within controlled environments, such as greenhouses or indoor facilities. By maintaining optimal conditions for plant growth, including temperature, humidity, light, and CO2 levels, CEA allows for year-round production, protection from pests and diseases, and reduced dependence on external factors"
-        )
-
-        learnRecyclerView = binding.mRecycleView
-        learnRecyclerView.layoutManager = LinearLayoutManager(this)
-        learnRecyclerView.setHasFixedSize(true)
         initUi()
+        recyclerView = findViewById(R.id.mRecyclerView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        learnArrayList = arrayListOf()
-        getUserData()
-    }
+        learnList = ArrayList()
 
-    private fun getUserData() {
-        for(i in imageId.indices){
-            val learn = Learn(imageId[i], heading[i])
-            learnArrayList.add(learn)
+        learnList.add(Learn(R.drawable.ic_farm1 , "Precision farming"))
+        learnList.add(Learn(R.drawable.ic_farm2 , "Vertical farming"))
+        learnList.add(Learn(R.drawable.ic_farm3 ,  "CEA"))
+        learnList.add(Learn(R.drawable.ic_farm1 , "Aquaponics"))
+        learnList.add(Learn(R.drawable.ic_farm2 ,  "Hydroponics"))
+        learnList.add(Learn(R.drawable.ic_farm3 ,  "Precision farming"))
+
+        myAdapter = MyAdapter(learnList)
+        recyclerView.adapter = myAdapter
+
+        myAdapter.onItemClick = {
+            val intent = Intent(this, DetailedActivity::class.java)
+            intent.putExtra("learn", it)
+            startActivity(intent)
         }
-        learnRecyclerView.adapter = MyAdapter(learnArrayList)
     }
 
     private fun initUi(){

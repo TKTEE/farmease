@@ -11,7 +11,7 @@ class TrackActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_connect)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_track)
         initUi()
     }
     private fun initUi(){

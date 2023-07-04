@@ -11,7 +11,7 @@ class CalculateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculate)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_connect)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_calculate)
         initUi()
     }
     private fun initUi(){
