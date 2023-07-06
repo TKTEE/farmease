@@ -12,56 +12,58 @@
             android:id="@+id/mCustomToolBar"
             layout="@layout/custom_toolbar"
             android:src="@drawable/ic_calc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/mLayout"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="92dp"
-            android:layout_marginBottom="69dp"
-            android:text="Enter daily sales amount:"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextAmount"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/editTextAmount"
+        <LinearLayout
+            android:id="@+id/mLayout"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textView"
-            android:layout_marginTop="302dp"
-            android:hint="Enter amount"
-            android:inputType="numberDecimal"
-            android:minHeight="48dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="43dp"
+            android:layout_marginEnd="43dp"
+            android:layout_marginBottom="38dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/mCustomToolBar"
+            tools:context=".DailyCashActivity">
 
-        <Button
-            android:id="@+id/buttonCalculate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editTextAmount"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="136dp"
-            android:layout_marginBottom="152dp"
-            android:text="Calculate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="Daily Cash Data"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/buttonCalculate"
-            android:layout_marginTop="16dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/mCustomToolBar" />
+            <Spinner
+                android:id="@+id/mSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/mEdtCash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="Enter cash amount"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/mBtnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Save"
+                tools:ignore="TextSizeCheck" />
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -3,46 +3,49 @@ package com.example.farmease
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.GridLayout
 import android.widget.ImageView
 
 class HomeActivity : AppCompatActivity() {
-    lateinit var cardConnect : ImageView
-    lateinit var cardLearn : ImageView
-    lateinit var cardStats : ImageView
-    lateinit var cardTrack : ImageView
-    lateinit var cardProduce : ImageView
-    lateinit var cardCalc : ImageView
+    lateinit var imgConnect : ImageView
+    lateinit var imgLearn : ImageView
+    lateinit var imgStats : ImageView
+    lateinit var imgTrack : ImageView
+    lateinit var imgProduce : ImageView
+    lateinit var imgCalc : ImageView
+    lateinit var gridLayout: GridLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        cardConnect = findViewById(R.id.mCardConnect)
-        cardLearn = findViewById(R.id.mCardLearn)
-        cardStats = findViewById(R.id.mCardStat)
-        cardTrack = findViewById(R.id.mCardTruck)
-        cardProduce = findViewById(R.id.mCardProduce)
-        cardCalc = findViewById(R.id.mCardCalc)
+        imgConnect = findViewById(R.id.mCardConnect)
+        imgLearn = findViewById(R.id.mCardLearn)
+        imgStats = findViewById(R.id.mCardStat)
+        imgTrack = findViewById(R.id.mCardTruck)
+        imgProduce = findViewById(R.id.mCardProduce)
+        imgCalc = findViewById(R.id.mCardCalc)
+        gridLayout = findViewById(R.id.mGridLayout)
 
-        cardConnect.setOnClickListener {
+        imgConnect.setOnClickListener {
             val intent = Intent(this, ConnectActivity::class.java)
             startActivity(intent)
         }
-        cardLearn.setOnClickListener {
+        imgLearn.setOnClickListener {
             val intent = Intent(this, LearnActivity::class.java)
             startActivity(intent)
         }
-        cardStats.setOnClickListener {
+        imgStats.setOnClickListener {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
         }
-        cardTrack.setOnClickListener {
+        imgTrack.setOnClickListener {
             val intent = Intent(this, TrackActivity::class.java)
             startActivity(intent)
         }
-        cardProduce.setOnClickListener {
+        imgProduce.setOnClickListener {
             val intent = Intent(this, ProduceActivity::class.java)
             startActivity(intent)
         }
-        cardCalc.setOnClickListener {
+        imgCalc.setOnClickListener {
             val intent = Intent(this, CalculateActivity::class.java)
             startActivity(intent)
         }
