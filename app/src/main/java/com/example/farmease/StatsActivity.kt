@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.farmease.databinding.ActivityConnectBinding
 import com.example.farmease.databinding.ActivityStatsBinding
 
 class StatsActivity : AppCompatActivity() {
